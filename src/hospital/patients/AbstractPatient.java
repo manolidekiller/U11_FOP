@@ -28,8 +28,8 @@ public abstract class AbstractPatient implements Comparable<AbstractPatient> {
    * @param patientArrivalTime the arrival time of the patient
    */
   public AbstractPatient(String patientName, LocalTime patientArrivalTime) {
-    name = patientName;
-    arrivalTime = patientArrivalTime;
+    this.name = patientName;
+    this.arrivalTime = patientArrivalTime;
   }
 
   /**
