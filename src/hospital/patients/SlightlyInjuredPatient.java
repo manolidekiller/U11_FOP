@@ -15,19 +15,18 @@ public class SlightlyInjuredPatient extends AbstractPatient {
 
 	@Override
 	public int compareTo(AbstractPatient o) {
+		// HohePrio.compareTo(niedrigePrio) = -1
+		// niedrigePrio.compareTo(HohePrio) = +1
 		if (o instanceof EmergencyPatient || o instanceof SeverelyInjuredPatient){
-			// this = SlightylyInjuredPatient | o = Emergencypatient
-			
+			 return 1;
 		} else {
-			// 
-			
+			return o.arrivalTime.compareTo(this.arrivalTime);
 		}
 	}
 
 	@Override
 	public TreatmentPriority getPriority() {
-		// TODO Auto-generated method stub
-		return priority;
+		return this.priority;
 	}
 
 	@Override

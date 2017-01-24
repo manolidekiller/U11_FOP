@@ -15,14 +15,24 @@ public class SeverelyInjuredPatient extends AbstractPatient {
 
 	@Override
 	public int compareTo(AbstractPatient o) {
-		// TODO Auto-generated method stub
-		return 0;
+		// HohePrio.compareTo(niedrigePrio) = -1
+		// niedrigePrio.compareTo(HohePrio) = +1
+		if (o instanceof EmergencyPatient) {
+			 return 1;
+		} else if (o instanceof SlightlyInjuredPatient) {
+			return -1;
+		} else {
+			if (this.injuryRate > ((SeverelyInjuredPatient)o).injuryRate)
+				return 1;
+			else if (this.injuryRate < ((SeverelyInjuredPatient)o).injuryRate)
+				return -1;
+			else return this.arrivalTime.compareTo(o.arrivalTime);
+		}
 	}
 
 	@Override
 	public TreatmentPriority getPriority() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.priority;
 	}
 
 	@Override
