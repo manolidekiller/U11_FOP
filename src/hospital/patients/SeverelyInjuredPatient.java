@@ -22,9 +22,9 @@ public class SeverelyInjuredPatient extends AbstractPatient {
 		} else if (o instanceof SlightlyInjuredPatient) {
 			return -1;
 		} else {
-			if (this.injuryRate > ((SeverelyInjuredPatient)o).injuryRate)
+			if (this.injuryRate < ((SeverelyInjuredPatient)o).injuryRate)
 				return 1;
-			else if (this.injuryRate < ((SeverelyInjuredPatient)o).injuryRate)
+			else if (this.injuryRate > ((SeverelyInjuredPatient)o).injuryRate)
 				return -1;
 			else return this.arrivalTime.compareTo(o.arrivalTime);
 		}
