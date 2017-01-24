@@ -1,6 +1,14 @@
 package hospital.heap;
-
 import java.util.ArrayList;
+
+/**
+ * FOP Hu 11
+ * @author Ozan Agtas
+ * @author Emmanouil Vergopoulos
+ * @author Berfin Korkmaz
+ * @author Jasmin Reis Klapper
+ * @param <T> 
+ */
 
 public class ArrayListHeap<T extends Comparable<T>> extends AbstractBinaryHeap {
 
