@@ -1,6 +1,7 @@
 package hospital.test;
 
 
+import static org.junit.Assert.*;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -9,7 +10,12 @@ import java.util.Random;
 
 import org.junit.Test;
 
+import hospital.PatientQueue;
+import hospital.heap.ArrayListHeap;
 import hospital.patients.AbstractPatient;
+import hospital.patients.EmergencyPatient;
+import hospital.patients.SeverelyInjuredPatient;
+import hospital.patients.SlightlyInjuredPatient;
 
 public class TestPatientQueue {
 	
@@ -75,8 +81,23 @@ public class TestPatientQueue {
 	// you can use the provided getShuffledArray(AbstractPatient[] patients) method.
 	@Test
 	public void validateProcessQueue(){
-		//TODO Implement test!
+		SlightlyInjuredPatient easy1 = new SlightlyInjuredPatient("Josef", LocalTime.of(17, 15));
+		SeverelyInjuredPatient med1 = new SeverelyInjuredPatient("Salz", LocalTime.of(14, 51), 51);
+		SeverelyInjuredPatient med2 = new SeverelyInjuredPatient("Max", LocalTime.of(23, 23), 12);
+		EmergencyPatient hard1 = new EmergencyPatient("Mustermann", LocalTime.of(10, 30));
+		EmergencyPatient hard2 = new EmergencyPatient("Dwayne TheRock Johnson", LocalTime.of(10, 32));
+		AbstractPatient[] listOfPatients = { easy1, med1, med2, hard1, hard2 };
+		
+		PatientQueue<AbstractPatient> list = new PatientQueue<AbstractPatient>();
+		
+		for (AbstractPatient abstractPatient : getShuffledArray(listOfPatients)) {
+			System.out.println(abstractPatient.toString());
+			list.addPatient(abstractPatient);
+		}
+		
+		System.out.println("foreach fertig. Process Queue startet");
+		ArrayList<String> result = list.processQueue();
+		System.out.println("Process Queue fertig");
+		
 	}
-	
-	
 }

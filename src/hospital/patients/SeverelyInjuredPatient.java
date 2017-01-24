@@ -17,6 +17,7 @@ public class SeverelyInjuredPatient extends AbstractPatient {
 	public int compareTo(AbstractPatient o) {
 		// HohePrio.compareTo(niedrigePrio) = -1
 		// niedrigePrio.compareTo(HohePrio) = +1
+		
 		if (o instanceof EmergencyPatient) {
 			 return 1;
 		} else if (o instanceof SlightlyInjuredPatient) {
