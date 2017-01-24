@@ -2,52 +2,48 @@ package hospital.heap;
 
 import java.util.ArrayList;
 
-public class ArrayListHeap extends AbstractBinaryHeap {
+public class ArrayListHeap<T extends Comparable<T>> extends AbstractBinaryHeap {
 
-	private ArrayList list = new ArrayList<>();
-	
+	private ArrayList<T> list = new ArrayList<T>();
+
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return list.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return list.size() == 0;
 	}
 
 	@Override
 	protected boolean isHeap(int parentIndex, int childIndex) {
-		// TODO Auto-generated method stub
-		return false;
+		return list.get(parentIndex).compareTo(list.get(childIndex)) <= 0;
 	}
 
 	@Override
 	protected void swapNodes(int parentIndex, int childIndex) {
-		// TODO Auto-generated method stub
-
+		T parent = list.get(parentIndex);
+		list.set(parentIndex, list.get(childIndex));
+		list.set(childIndex, parent);
 	}
 
 	@Override
 	public void push(Comparable element) {
-		// TODO Auto-generated method stub
-
+		list.add((T) element);
+		super.heapifyUp(list.indexOf(element));
 	}
 
 	@Override
 	public Comparable top() {
-		// TODO Auto-generated method stub
-		return null;
+		return list.get(0);
 	}
 
 	@Override
 	public Comparable pop() {
-		// TODO Auto-generated method stub
-		return null;
+		T root = list.set(0, list.get(getSize() - 1));
+		heapifyDown(0);
+		return root;
 	}
-	
-
 
 }
