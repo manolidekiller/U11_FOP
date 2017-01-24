@@ -5,7 +5,7 @@ public class ArrayListHeap extends AbstractBinaryHeap {
 	@Override
 	public int getSize() {
 		// TODO Auto-generated method stub
-		return AbstractBin;
+		return 0;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package hospital.test;
 
 
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -19,7 +20,6 @@ public class TestPatientQueue {
 	/**
 	 * Takes an array of patients and returns a shuffled copy.
 	 * @param patients the patients
-	 * 
 	 * @return the patients in shuffled order
 	 */
 	private static AbstractPatient[] getShuffledArray(AbstractPatient[] patients){
