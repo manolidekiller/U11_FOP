@@ -1,11 +1,7 @@
 package hospital.heap;
 
-import java.util.ArrayList;
-
 public class ArrayListHeap extends AbstractBinaryHeap {
 
-	private ArrayList list = new ArrayList<>();
-	
 	@Override
 	public int getSize() {
 		// TODO Auto-generated method stub
