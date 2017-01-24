@@ -20,7 +20,7 @@ public class SlightlyInjuredPatient extends AbstractPatient {
 		if (o instanceof EmergencyPatient || o instanceof SeverelyInjuredPatient){
 			 return 1;
 		} else {
-			return o.arrivalTime.compareTo(this.arrivalTime);
+			return this.arrivalTime.compareTo(o.arrivalTime);
 		}
 	}
 
