@@ -9,7 +9,7 @@ package hospital.heap;
  * @param <T> the type of the elements in this heap. The type must implement the
  * Comparable interface.
  */
-public abstract class AbstractBinaryHeap<T extends Comparable<T>> {\@|||||||||||||||||||||||| 
+public abstract class AbstractBinaryHeap<T extends Comparable<T>> {
     /**
      * Returns the number of elements stored in this heap.
      * 

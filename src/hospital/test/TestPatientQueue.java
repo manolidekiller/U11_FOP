@@ -20,7 +20,6 @@ public class TestPatientQueue {
 	/**
 	 * Takes an array of patients and returns a shuffled copy.
 	 * @param patients the patients
-	 * 
 	 * @return the patients in shuffled order
 	 */
 	private static AbstractPatient[] getShuffledArray(AbstractPatient[] patients){
