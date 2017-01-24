@@ -18,9 +18,9 @@ public class EmergencyPatient extends AbstractPatient {
 		// HohePrio.compareTo(niedrigePrio) = -1
 		// niedrigePrio.compareTo(HohePrio) = +1
 		if (o instanceof SlightlyInjuredPatient || o instanceof SeverelyInjuredPatient){
-			 return -1;
+			 return 1;
 		} else {
-			return this.arrivalTime.compareTo(o.arrivalTime);
+			return o.arrivalTime.compareTo(this.arrivalTime);
 		}
 	}
 
