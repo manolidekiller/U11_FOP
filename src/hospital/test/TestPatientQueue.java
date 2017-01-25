@@ -24,7 +24,7 @@ public class TestPatientQueue {
 	 */
 	private static AbstractPatient[] getShuffledArray(AbstractPatient[] patients){
 		// Init random number generator with fixed seed
-		Random random = new Random(12345);
+		Random random = new Random();
 		
 		// Add patients to new list
 		ArrayList<AbstractPatient> list = new ArrayList<AbstractPatient>();
@@ -81,10 +81,11 @@ public class TestPatientQueue {
 		EmergencyPatient hard1 = new EmergencyPatient("Mustermann", LocalTime.of(10, 30));
 		EmergencyPatient hard2 = new EmergencyPatient("Dwayne TheRock Johnson", LocalTime.of(10, 32));
 		AbstractPatient[] listOfPatients = { easy1, med1, med2, hard1, hard2 };
+		listOfPatients = getShuffledArray(listOfPatients);
 		
 		PatientQueue<AbstractPatient> list = new PatientQueue<AbstractPatient>();
 		
-		for (AbstractPatient abstractPatient : getShuffledArray(listOfPatients)) {
+		for (AbstractPatient abstractPatient : (listOfPatients)) {
 			System.out.println(abstractPatient.toString());
 			list.addPatient(abstractPatient);
 		}
@@ -92,7 +93,11 @@ public class TestPatientQueue {
 		System.out.println("foreach fertig. Process Queue startet");
 		ArrayList<String> result = list.processQueue();
 		System.out.println("Process Queue fertig");
+		for (String string : result) {
+			System.out.println(string);
+		}
 	}
+	
 	
 	
 }

@@ -21,7 +21,7 @@ public class PatientQueue<T extends AbstractPatient> {
 		ArrayList<String> q = new ArrayList<String>();
 		
 		while (!list.isEmpty()) {
-			q.add(list.pop().toString());	
+				q.add(list.pop().toString());
 		}
 		
 		return q;

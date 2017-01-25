@@ -49,11 +49,18 @@ public class ArrayListHeap<T extends Comparable<T>> extends AbstractBinaryHeap {
 
 	@Override
 	public Comparable pop() {
-		T last = list.get(getSize() - 1);
-		list.remove(list.indexOf(last));
-		T root = list.set(0, last);
-		heapifyDown(0);
-		return root;
+		if (this.getSize()>1) {
+			T last = list.get(getSize() - 1);
+			list.remove(list.indexOf(last));
+			T root = list.set(0, last);
+			heapifyDown(0);
+			return root;
+		} else if (this.getSize()==1) {
+			T root = list.get(0);
+			list.remove(0);
+			return root;
+		}
+		else return null;
 	}
 
 }
