@@ -1,7 +1,5 @@
 package hospital.test;
 
-
-
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +7,9 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import hospital.patients.AbstractPatient;
+import hospital.PatientQueue;
+import hospital.patients.*;
+
 
 public class TestPatientQueue {
 	
@@ -74,8 +74,24 @@ public class TestPatientQueue {
 	// patients in random order. To generate a randomly ordered patient list, 
 	// you can use the provided getShuffledArray(AbstractPatient[] patients) method.
 	@Test
-	public void validateProcessQueue(){
-		//TODO Implement test!
+	public void validateProcessQueue() {
+		SlightlyInjuredPatient easy1 = new SlightlyInjuredPatient("Josef", LocalTime.of(17, 15));
+		SeverelyInjuredPatient med1 = new SeverelyInjuredPatient("Salz", LocalTime.of(14, 51), 51);
+		SeverelyInjuredPatient med2 = new SeverelyInjuredPatient("Max", LocalTime.of(23, 23), 12);
+		EmergencyPatient hard1 = new EmergencyPatient("Mustermann", LocalTime.of(10, 30));
+		EmergencyPatient hard2 = new EmergencyPatient("Dwayne TheRock Johnson", LocalTime.of(10, 32));
+		AbstractPatient[] listOfPatients = { easy1, med1, med2, hard1, hard2 };
+		
+		PatientQueue<AbstractPatient> list = new PatientQueue<AbstractPatient>();
+		
+		for (AbstractPatient abstractPatient : getShuffledArray(listOfPatients)) {
+			System.out.println(abstractPatient.toString());
+			list.addPatient(abstractPatient);
+		}
+		
+		System.out.println("foreach fertig. Process Queue startet");
+		ArrayList<String> result = list.processQueue();
+		System.out.println("Process Queue fertig");
 	}
 	
 	
